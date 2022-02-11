@@ -16,7 +16,7 @@ namespace PraxedesBackend.Models
         public DateTime? DateOfBirth { get; set; }
         public string UserNames { get; set; }
         public string UserLastNames { get; set; }
-        public string UserPaltformName { get; set; }
+        public string UserPlatformName { get; set; }
         public string UserPassword { get; set; }
         public string UserGender { get; set; }
         public int UserDocumentNumber { get; set; }

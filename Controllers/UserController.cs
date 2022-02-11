@@ -39,7 +39,6 @@ namespace PraxedesBackend.Controllers
         {
             var message = new Message<User>();
             var data = DbClientFactory<UserDbClient>.Instance.SaveUser(model, appSettings.Value.DbConnection);
-
             message.IsSuccess = true;
             message.ReturnMessage = "User is saved";
             message.Data = model;
@@ -47,7 +46,7 @@ namespace PraxedesBackend.Controllers
             return Ok(message);
         }
 
-        [HttpPost("update")]
+        [HttpPost("UpdateUser")]
         public IActionResult Update([FromBody] User model)
         {
             var message = new Message<User>();
@@ -60,7 +59,7 @@ namespace PraxedesBackend.Controllers
             return Ok(message);
         }
 
-        [HttpDelete]
+        [HttpDelete("DeleteUser")]
         public IActionResult Delete([FromBody] User model)
         {
             var message = new Message<User>();

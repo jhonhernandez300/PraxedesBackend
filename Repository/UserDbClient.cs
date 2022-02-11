@@ -12,7 +12,7 @@ namespace PraxedesBackend.Repository
     {
         public List<User> GetUser(string connString)
         {
-            return SqlHelper.ExtecuteProcedureReturnData<List<User>>(connString, "GetAllUsers", r => r.TranslateAsUserList());
+            return SqlHelper.ExtecuteProcedureReturnData<List<User>>(connString, "SPGetAllUsers", r => r.TranslateAsUserList());
         }
 
         public string SaveUser(User model, string connString)
@@ -24,11 +24,12 @@ namespace PraxedesBackend.Repository
                 new SqlParameter("@DateOfBirth", model.DateOfBirth),
                 new SqlParameter("@UserNames", model.UserNames),
                 new SqlParameter("@UserLastNames", model.UserLastNames),
-                new SqlParameter("@UserPaltformName", model.UserPaltformName),
+                new SqlParameter("@UserPlatformName", model.UserPlatformName),
+                new SqlParameter("@UserPassword", model.UserPassword),
                 new SqlParameter("@UserGender", model.UserGender),
                 new SqlParameter("@UserDocumentNumber", model.UserDocumentNumber)
             };
-            return SqlHelper.ExecuteProcedureReturnString(connString, "SaveUser", param);
+            return SqlHelper.ExecuteProcedureReturnString(connString, "SPSaveUser", param);
         }
 
         public string DeleteUser(int id, string connString)
@@ -38,7 +39,7 @@ namespace PraxedesBackend.Repository
             {
                 new SqlParameter("@Id", id),
             };
-            return SqlHelper.ExecuteProcedureReturnString(connString, "DeleteUser", param);
+            return SqlHelper.ExecuteProcedureReturnString(connString, "SPDeleteUser", param);
         }
         public string UpdateUser(User model, string connString)
         {
@@ -49,12 +50,13 @@ namespace PraxedesBackend.Repository
                 new SqlParameter("@DateOfBirth", model.DateOfBirth),
                 new SqlParameter("@UserNames", model.UserNames),
                 new SqlParameter("@UserLastNames", model.UserLastNames),
-                new SqlParameter("@UserPaltformName", model.UserPaltformName),
+                new SqlParameter("@UserPlatformName", model.UserPlatformName),
+                new SqlParameter("@UserPassword", model.UserPassword),
                 new SqlParameter("@UserGender", model.UserGender),
                 new SqlParameter("@UserDocumentNumber", model.UserDocumentNumber)
                 //,outParam
             };
-            return SqlHelper.ExecuteProcedureReturnString(connString, "UpdateUser", param);
+            return SqlHelper.ExecuteProcedureReturnString(connString, "SPUpdateUser", param);
             //  return (string)outParam.Value;
         }
 

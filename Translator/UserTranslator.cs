@@ -32,8 +32,11 @@ namespace PraxedesBackend.Translator
             if (reader.IsColumnExists("UserLastNames"))
                 item.UserLastNames = SqlHelper.GetNullableString(reader, "UserLastNames");
 
-            if (reader.IsColumnExists("UserPaltformName"))
-                item.UserPaltformName = SqlHelper.GetNullableString(reader, "UserPaltformName");
+            if (reader.IsColumnExists("UserPlatformName"))
+                item.UserPlatformName = SqlHelper.GetNullableString(reader, "UserPlatformName");
+
+            if (reader.IsColumnExists("UserPassword"))
+                item.UserPassword = SqlHelper.GetNullableString(reader, "UserPassword");
 
             if (reader.IsColumnExists("UserGender"))
                 item.UserGender = SqlHelper.GetNullableString(reader, "UserGender");
